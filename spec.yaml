@@ -1,0 +1,44 @@
+folder_id: b1g8l63q7v4dqkl3bnkj
+name: github-ig
+instance_template:
+  platform_id: standard-v3
+  resources_spec:
+    memory: 2g
+    cores: 2
+    core_fraction: 100
+  boot_disk_spec:
+    mode: READ_WRITE
+    disk_spec:
+      type_id: network-hdd
+      size: 30g
+      image_id: fd80o2eikcn22b229tsa # https://cloud.yandex.ru/marketplace/products/yc/container-optimized-image#product-ids
+  network_interface_specs:
+    - network_id: enpoucjfujp63asjaqjl
+      subnet_ids:
+        - b0cn3so9rfq3jkjjb5aq
+        - e2lv04o40rc4c57gocgr
+        - e9bvebgb79ftr8vmu4tb
+      primary_v4_address_spec:
+        one_to_one_nat_spec:
+          ip_version: IPV4
+  scheduling_policy: { }
+scale_policy:
+  auto_scale:
+    initial_size: 3
+    measurement_duration: 60
+    cpu_utilization_target: 75
+    min_zone_size: 3
+    max_size: 15
+    warmup_duration: 60
+    stabilization_duration: 120
+deploy_policy:
+  max_unavailable: 1
+  max_creating: 1
+  max_expansion: 1
+  max_deleting: 1
+allocation_policy:
+  zones:
+    - zone_id: ru-central1-a
+    - zone_id: ru-central1-b
+    - zone_id: ru-central1-c
+service_account_id: ajeqcb6mt86d9nt0c4g5
