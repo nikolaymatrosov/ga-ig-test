@@ -26,7 +26,8 @@ scale_policy:
   auto_scale:
     initial_size: 3
     measurement_duration: 60
-    cpu_utilization_target: 75
+    cpu_utilization_rule:
+      utilization_target: 75
     min_zone_size: 3
     max_size: 15
     warmup_duration: 60
