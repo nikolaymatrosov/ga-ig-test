@@ -25,13 +25,13 @@ instance_template:
 scale_policy:
   auto_scale:
     initial_size: 3
-    measurement_duration: 1m
+    measurement_duration: 60s
     cpu_utilization_rule:
       utilization_target: 75
     min_zone_size: 3
     max_size: 15
-    warmup_duration: 1m
-    stabilization_duration: 2m
+    warmup_duration: 60s
+    stabilization_duration: 120s
 deploy_policy:
   max_unavailable: 1
   max_creating: 1
