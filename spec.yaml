@@ -1,6 +1,7 @@
 folder_id: b1g8l63q7v4dqkl3bnkj
 name: github-ig
 instance_template:
+  service_account_id: ajeqcb6mt86d9nt0c4g5
   platform_id: standard-v3
   resources_spec:
     memory: 2g
