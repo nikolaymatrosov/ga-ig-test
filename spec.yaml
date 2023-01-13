@@ -23,6 +23,8 @@ instance_template:
         one_to_one_nat_spec:
           ip_version: IPV4
   scheduling_policy: { }
+load_balancer_spec:
+  name: ga-ig
 scale_policy:
   auto_scale:
     initial_size: 3
