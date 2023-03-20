@@ -37,8 +37,8 @@ jobs:
           CR_REPOSITORY: yc-coi-github-action
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG .
-          docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
+          docker build -t cr.il.nebius.cloud/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG .
+          docker push cr.il.nebius.cloud/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
   deploy:
     needs:
       - build
@@ -50,7 +50,7 @@ jobs:
         id: deploy-coi
         uses: yc-actions/yc-coi-deploy-ig@v1
         env:
-          IMAGE_URL: cr.yandex/crl5thijr34k608295b5/yc-coi-github-action:${{ github.sha }}
+          IMAGE_URL: cr.il.nebius.cloud/crl5thijr34k608295b5/yc-coi-github-action:${{ github.sha }}
           SSH_KEY: ${{ secrets.SSH_KEY }}
         with:
           yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS_NEB }}
