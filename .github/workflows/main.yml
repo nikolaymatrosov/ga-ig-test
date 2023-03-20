@@ -58,3 +58,4 @@ jobs:
           ig-spec-path: './spec.yaml'
           user-data-path: './user-data.yaml'
           docker-compose-path: './docker-compose.yaml'
+          api-endpoint: api.cloudil.com
