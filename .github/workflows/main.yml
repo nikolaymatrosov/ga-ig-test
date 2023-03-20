@@ -28,12 +28,12 @@ jobs:
       - name: Yandex Cloud CR "Login" Action for GitHub Actions
         uses: yc-actions/yc-cr-login@v1
         with:
-          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS_NEB }}
 
 
       - name: Build, tag, and push image to Yandex Cloud Container Registry
         env:
-          CR_REGISTRY: crpgdal6dtp6tdl6jnvo
+          CR_REGISTRY: crl5thijr34k608295b5
           CR_REPOSITORY: yc-coi-github-action
           IMAGE_TAG: ${{ github.sha }}
         run: |
@@ -50,11 +50,11 @@ jobs:
         id: deploy-coi
         uses: yc-actions/yc-coi-deploy-ig@v1
         env:
-          IMAGE_URL: cr.yandex/crpgdal6dtp6tdl6jnvo/yc-coi-github-action:${{ github.sha }}
+          IMAGE_URL: cr.yandex/crl5thijr34k608295b5/yc-coi-github-action:${{ github.sha }}
           SSH_KEY: ${{ secrets.SSH_KEY }}
         with:
-          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
-          folder-id: b1g8l63q7v4dqkl3bnkj
+          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS_NEB }}
+          folder-id: yc.marketplace.mkt-test-folder
           ig-spec-path: './spec.yaml'
           user-data-path: './user-data.yaml'
           docker-compose-path: './docker-compose.yaml'

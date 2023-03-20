@@ -1,24 +1,24 @@
-folder_id: b1g8l63q7v4dqkl3bnkj
+folder_id: yc.marketplace.mkt-test-folder
 name: github-ig
 instance_template:
-  service_account_id: ajeqcb6mt86d9nt0c4g5
+  service_account_id: f08sli5crq8i2fu6pm3d
   platform_id: standard-v3
   resources_spec:
     memory: 2g
-    cores: 2
-    core_fraction: 100
+    cores: '2'
+    core_fraction: '100'
   boot_disk_spec:
     mode: READ_WRITE
     disk_spec:
       type_id: network-hdd
       size: 30g
-      image_id: fd80o2eikcn22b229tsa # https://cloud.yandex.ru/marketplace/products/yc/container-optimized-image#product-ids
+      image_id: alk8604p2tpu8rlmqcen # https://cloud.yandex.ru/marketplace/products/yc/container-optimized-image#product-ids
   network_interface_specs:
-    - network_id: enpoucjfujp63asjaqjl
+    - network_id: ccmdpim7uh8ole3osnfc
       subnet_ids:
-        - b0cn3so9rfq3jkjjb5aq
-        - e2lv04o40rc4c57gocgr
-        - e9bvebgb79ftr8vmu4tb
+        - c4i1vvtb3ssjhmfe56qq
+        - ddk8v24i94pa73llgrpc
+        - dqphr3qb958v2oot3i3h
       primary_v4_address_spec:
         one_to_one_nat_spec:
           ip_version: IPV4
@@ -28,22 +28,22 @@ load_balancer_spec:
     name: ga-ig
 scale_policy:
   auto_scale:
-    initial_size: 3
+    initial_size: '3'
     measurement_duration: 60s
     cpu_utilization_rule:
       utilization_target: 75
-    min_zone_size: 1
-    max_size: 6
+    min_zone_size: '1'
+    max_size: '6'
     warmup_duration: 60s
     stabilization_duration: 120s
 deploy_policy:
-  max_unavailable: 1
-  max_creating: 1
-  max_expansion: 1
-  max_deleting: 1
+  max_unavailable: '1'
+  max_creating: '1'
+  max_expansion: '1'
+  max_deleting: '1'
 allocation_policy:
   zones:
-    - zone_id: ru-central1-a
-    - zone_id: ru-central1-b
-    - zone_id: ru-central1-c
-service_account_id: ajeqcb6mt86d9nt0c4g5
+    - zone_id: il1-a
+    - zone_id: il1-b
+    - zone_id: il1-c
+service_account_id: f08sli5crq8i2fu6pm3d
