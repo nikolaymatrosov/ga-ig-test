@@ -29,7 +29,7 @@ jobs:
         uses: yc-actions/yc-cr-login@v1
         with:
           yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS_NEB }}
-
+          cr-endpoint: cr.il.nebius.cloud
 
       - name: Build, tag, and push image to Yandex Cloud Container Registry
         env:
